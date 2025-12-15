@@ -40,8 +40,8 @@ function playgame(){
         console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
         computerScore = computerScore + 1;
     } else if ( humanChoice == 'paper' && computerChoice == 'scissors'){
-        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
-        computerScore = computerScore + 1;
+        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);       //instead of the way playround is written we can take all choices that return human lose into one
+        computerScore = computerScore + 1;                                     // bracket using or and and operators so that we have only 2 else ifs
     } else if ( humanChoice == 'scissors' && computerChoice == 'rock'){
         console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
         computerScore = computerScore + 1;
@@ -54,16 +54,18 @@ function playgame(){
     } else if ( humanChoice == 'rock' && computerChoice == 'scissors'){
         console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
         humanScore = humanScore + 1;
+    } else {
+        console.log('You entered a wrong choice');
     }
     
-    //Declaring a Round Winner == Here well refine later but the code meets its objectives
+    //Declaring a Round Winner == Here we'll refine later but the code meets its objectives
 
     if (computerScore > humanScore){
-        console.log(`Computer Wins Round with ${computerScore} points`);
+        console.log(`Computer Wins Round`);
     } else if ( humanScore > computerScore){
-        console.log(`Human Wins Round with ${humanScore} points`);
+        console.log(`Human Wins Round`);
     } else {
-        console.log(`Scores remain Same with computer ${computerScore} : ${humanScore} Human`);
+        console.log(`Scores same ${computerScore} : ${humanScore} Human`);
     }
 
 
