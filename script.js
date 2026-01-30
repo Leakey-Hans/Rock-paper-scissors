@@ -70,13 +70,19 @@ function playgame(){
 
 
 }
+    
+
     //Also we have to call the playround function inside here cause it don't work outside in the global scope
 
-    playround(getHumanChoice(), getComputerChoice()); //Here we dont use the the const human selection we declared earlier cause
-    playround(getHumanChoice(), getComputerChoice()); //assigning a function call stores the the same result doing this it would mean we use the the same variable for all rounds
-    playround(getHumanChoice(), getComputerChoice()); //thus we pass the function calls as arguments to the playrpund function so each playround prompts the user and generates 
-    playround(getHumanChoice(), getComputerChoice()); //a new random number for use in each round
-    playround(getHumanChoice(), getComputerChoice());
+    //playround(getHumanChoice(), getComputerChoice()); //Here we dont use the the const human selection we declared earlier cause
+    //playround(getHumanChoice(), getComputerChoice()); //assigning a function call stores the the same result doing this it would mean we use the the same variable for all rounds
+    //playround(getHumanChoice(), getComputerChoice()); //thus we pass the function calls as arguments to the playrpund function so each playround prompts the user and generates 
+    //playround(getHumanChoice(), getComputerChoice()); //a new random number for use in each round
+    //playround(getHumanChoice(), getComputerChoice());
+
+    for (let i = 1; i <= 5; i++){                           //Instead of calling the function five times we use the for loop here
+        playround(getHumanChoice(), getComputerChoice());
+    }
 
     //logging the 5 round total score
     console.log(`Computer Score ${computerScore} ; ${humanScore} Human Score`);
