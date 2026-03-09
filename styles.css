@@ -29,6 +29,46 @@ body {
     
 }
 
+@media(max-width: 600px){
+    
+    .containerHeader{
+    text-align: center;
+    padding: 30px;
+    color: yellow;
+    font-size: 25px;
+    }
+
+    #scoreBoard{
+    border-style: dashed;
+    padding: 10px ;
+    text-align: center;
+    font-size: 10px;
+    }
+
+    #resultsDiv{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 166, 0);
+    font-size: 18px;
+    text-align: center;
+    }
+
+    #reset{
+    margin-top: 10px;
+    padding: 8px 20px;
+    font-family: "Press Start 2P", system-ui;
+    background-color: rgb(18, 158, 18);
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+    }
+    
+}
+
 #resultsDiv{
     padding: 10px;
     min-height: 30vh;
@@ -78,4 +118,19 @@ body {
     border-right: 4px solid black;
     border-radius: 10px;
     font-size: 20px;
+}
+
+.copyright{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.copyright a{
+    text-decoration: none;
+    color: white;
+}
+
+#logo{
+    height: 18px;
 }
