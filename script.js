@@ -1,5 +1,4 @@
 //Computer Choice Function
-
 function getComputerChoice(){
 
     let randomNum = Math.floor(Math.random() * 3);
@@ -12,81 +11,79 @@ function getComputerChoice(){
     }
 }
 
-//Human Choice 
+//Entire Game Now
+function playGame(){
 
-function getHumanChoice(){
+    /*When a user Clicks a button we get the value of that button
+    that is the html attribute we added */
 
-    let humantake = prompt('You Next!, Rock, Paper or Scissors ').toLocaleLowerCase();
-    return humantake;
-}
+    const buttons = document.querySelectorAll("#choiceButton");
 
-//const humanSelection = getHumanChoice();
-//const computerSelection = getComputerChoice();
+    buttons.forEach((button) => {
+        button.addEventListener("click", (e) => {
+            const userChoice = e.target.value;
+            playRound(userChoice, getComputerChoice());
+        });
+    });
 
-//the entire game now 
+    const roundResults = document.querySelector("#resultsDiv");
+    const runningScore = document.querySelector("#scoreBoard");
 
-function playgame(){
-
+    //Initialize Score with Zero
 
     let humanScore = 0;
     let computerScore = 0;
 
+    runningScore.textContent = `Computer Score ${computerScore} : ${humanScore} Human Score`;
 
-    function playround(humanChoice, computerChoice){ //the function playround was created earliear and moved into the playgame function
+    //  Function to play a single round and Increment Scores
 
-    if (humanChoice === computerChoice){
-        console.log('Stalemate! No winner');
-    } else if ( humanChoice == 'rock' && computerChoice == 'paper'){
-        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
-        computerScore = computerScore + 1;
-    } else if ( humanChoice == 'paper' && computerChoice == 'scissors'){
-        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);       //instead of the way playround is written we can take all choices that return human lose into one
-        computerScore = computerScore + 1;                                     // bracket using or and and operators so that we have only 2 else ifs
-    } else if ( humanChoice == 'scissors' && computerChoice == 'rock'){
-        console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
-        computerScore = computerScore + 1;
-    } else if ( humanChoice == 'scissors' && computerChoice == 'paper'){
-        console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
-        humanScore = humanScore + 1;
-    } else if ( humanChoice == 'paper' && computerChoice == 'rock'){
-        console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
-        humanScore = humanScore + 1;
-    } else if ( humanChoice == 'rock' && computerChoice == 'scissors'){
-        console.log(`You Win! ${humanChoice} beats ${computerChoice}`);
-        humanScore = humanScore + 1;
+    function playRound(humanChoice, computerChoice){ 
+
+   if (humanChoice === "rock" && computerChoice === "scissors"
+        || humanChoice === "paper" && computerChoice === "rock"
+        || humanChoice === "scissors" && computerChoice === "paper"
+
+    ){ 
+        roundResults.textContent = `You Win! ${humanChoice} beats ${computerChoice}`;
+        runningScore.textContent = `Computer Score ${computerScore} : ${humanScore += 1} Human Score`;
+    } else if (humanChoice === computerChoice){
+        roundResults.textContent = "Stalemate! Same Choices";
     } else {
-        console.log('You entered a wrong choice');
+        roundResults.textContent = `You lose! ${computerChoice} beats ${humanChoice}`;
+        runningScore.textContent = `Computer Score ${computerScore += 1} : ${humanScore} Human Score`
+    }
+
+        function reset() {
+            humanScore = 0;
+            computerScore = 0;
+            runningScore.textContent = `Computer Score ${computerScore} : ${humanScore} Human Score`;
+            roundResults.textContent = "";
+        }
+    
+        if (humanScore === 5){
+            alert("Player Wins Round");
+            reset();
+        } else if (computerScore === 5){
+            alert("Computer Wins Round");
+            reset();
+        };
+
     }
     
-    //Declaring a Round Winner == Here we'll refine later but the code meets its objectives
 
-    if (computerScore > humanScore){
-        console.log(`Computer Wins Round`);
-    } else if ( humanScore > computerScore){
-        console.log(`Human Wins Round`);
-    } else {
-        console.log(`Scores same ${computerScore} : ${humanScore} Human`);
-    }
+    const resetBtn = document.querySelector("#reset");
+
+    resetBtn.addEventListener("click", () => {
+        humanScore = 0;
+        computerScore = 0;
+        runningScore.textContent = `Computer Score ${computerScore} : ${humanScore} Human Score`;
+        roundResults.textContent = "";
+    });
+
 
 
 }
-    
 
-    //Also we have to call the playround function inside here cause it don't work outside in the global scope
-
-    //playround(getHumanChoice(), getComputerChoice()); //Here we dont use the the const human selection we declared earlier cause
-    //playround(getHumanChoice(), getComputerChoice()); //assigning a function call stores the the same result doing this it would mean we use the the same variable for all rounds
-    //playround(getHumanChoice(), getComputerChoice()); //thus we pass the function calls as arguments to the playrpund function so each playround prompts the user and generates 
-    //playround(getHumanChoice(), getComputerChoice()); //a new random number for use in each round
-    //playround(getHumanChoice(), getComputerChoice());
-
-    for (let i = 1; i <= 5; i++){                           //Instead of calling the function five times we use the for loop here
-        playround(getHumanChoice(), getComputerChoice());
-    }
-
-    //logging the 5 round total score
-    console.log(`Computer Score ${computerScore} ; ${humanScore} Human Score`);
-}
-
-playgame();
+playGame();
 

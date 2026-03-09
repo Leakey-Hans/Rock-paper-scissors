@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+.container{
+    background-color: rgb(181, 26, 209);
+    min-height: 100vh;
+}
+
+.containerHeader{
+    text-align: center;
+    padding: 30px;
+    color: yellow;
+}
+
+#scoreBoard{
+    border-style: dashed;
+    padding: 30px ;
+    text-align: center;
+    
+}
+
+#resultsDiv{
+    padding: 10px;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 166, 0);
+    font-size: 25px;
+}
+
+.buttonsContainer{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex: 1;
+    flex-wrap: wrap;
+    padding-left:100px;
+    padding-right: 100px;
+}
+
+#choiceButton{
+    padding: 5px 20px;
+    font-size: 20px;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 400;
+    color: rgb(255, 0, 140);
+    border-radius: 10px;
+    border: 3px solid rgb(0, 0, 0);
+    background-color: rgb(238, 238, 238);
+    flex: 1; /*This make the buttons same size*/
+}
+
+.restartContainer{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex: 1;
+}
+
+#reset{
+    margin-top: 80px;
+    padding: 8px 20px;
+    font-family: "Press Start 2P", system-ui;
+    background-color: rgb(18, 158, 18);
+    border-bottom: 4px solid black;
+    border-right: 4px solid black;
+    border-radius: 10px;
+    font-size: 20px;
+}

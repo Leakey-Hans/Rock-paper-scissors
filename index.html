@@ -4,9 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, paper, Scissors</title>
-    <script src="script.js"></script>
+    <!--Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!--Load Css-->
+    <link rel="stylesheet" href="./styles.css">
+    <!--Load Script file but defer it for DOM to load first-->
+    <script src="script.js" defer></script>
 </head>
 <body>
-    
+    <div class="container">
+        <h1 class="containerHeader">Rock Paper Scissors Game</h1>
+        <div id="scoreBoard"></div>
+        <div id="resultsDiv"></div>
+        <div class="buttonsContainer">
+            <button id="choiceButton" value="rock">Rock</button>
+            <button id="choiceButton" value="paper">Paper</button>
+            <button id="choiceButton" value="scissors">Scissors</button>
+        </div>
+        <div class="buttonsContainer">
+            <button id="reset">Restart</button>
+        </div>
+    </div>
 </body>
 </html>
